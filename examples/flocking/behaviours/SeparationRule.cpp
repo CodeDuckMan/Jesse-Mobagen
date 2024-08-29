@@ -15,6 +15,10 @@ Vector2f SeparationRule::computeForce(const std::vector<Boid*>& neighborhood, Bo
   //        int countCloseFlockmates = 0;
   //        // todo: find and apply force only on the closest mates
   //    }
+  // calc all
+  // sum the inverse
+  //
+
 
   separatingForce = Vector2f::normalized(separatingForce);
 

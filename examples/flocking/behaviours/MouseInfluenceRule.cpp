@@ -21,6 +21,8 @@ Vector2f MouseInfluenceRule::computeForce(const std::vector<Boid*>& neighborhood
   //    }
   //    else
   //        return Vector2f::zero();
+
+  //
   return Vector2f::zero();
 }
 
