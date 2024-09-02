@@ -17,10 +17,46 @@ Vector2f SeparationRule::computeForce(const std::vector<Boid*>& neighborhood, Bo
   //    }
   // calc all
   // sum the inverse
+  /*
+    2 variables
+    1 radius and 1 is inner radius
+
+    only apply force on the ones in the inner radius
+
+    discard boids outside inner radius
+    get all
+    for all get every on that should be applied from the neighbor to
+
+    neighbor position - boid position
+    create unitary vector
+
+    divide by magnitude
+
+    1 minus other / mod
+*/
+      for(Boid* b : neighborhood)
+      {
+        // remove itself
+        if(boid->getPosition() == b->getPosition()) {
+          continue;
+}
+
+        Vector2f sepVec = boid->getPosition() - b->getPosition();
+         float dist = sqrt((sepVec.x * sepVec.x) + (sepVec.y * sepVec.y));
+        //
+        if (dist < boid->getDetectionRadius() && dist > 0.01f)
+        {
+          sepVec = sepVec.normalized();
+          float force = 1/dist;
+          separatingForce += sepVec * force;
+        }
+
+      }
+
+
+
   //
 
-
-  separatingForce = Vector2f::normalized(separatingForce);
 
   return separatingForce;
 }
