@@ -44,7 +44,7 @@ Vector2f SeparationRule::computeForce(const std::vector<Boid*>& neighborhood, Bo
         Vector2f sepVec = boid->getPosition() - b->getPosition();
          float dist = sqrt((sepVec.x * sepVec.x) + (sepVec.y * sepVec.y));
         //
-        if (dist < boid->getDetectionRadius() && dist > 0.01f)
+        if (dist < desiredMinimalDistance && dist > 0.01f)
         {
           sepVec = sepVec.normalized();
           float force = 1/dist;

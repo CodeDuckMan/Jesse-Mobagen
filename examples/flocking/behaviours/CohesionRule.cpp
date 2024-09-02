@@ -13,10 +13,7 @@ Vector2f CohesionRule::computeForce(const std::vector<Boid*>& neighborhood, Boid
   centerMassPoint+=(iter->getPosition());
   }
 
-  if(neighborhood.size() > 1)
-    centerMassPoint = centerMassPoint/neighborhood.size();
-
-  cohesionForce = boid->getPosition() + centerMassPoint;
+  cohesionForce += centerMassPoint.normalized();
   // find center of mass
 
   return cohesionForce;
