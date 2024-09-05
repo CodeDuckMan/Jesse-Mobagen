@@ -16,5 +16,11 @@ Vector2f AlignmentRule::computeForce(const std::vector<Boid*>& neighborhood, Boi
   // change vel to follow neighbors
   //
 
+    for (auto *closestBoid : neighborhood) {
+      averageVelocity += closestBoid->getVelocity();
+    }
+  if (neighborhood.size() > 1) {
+    averageVelocity = averageVelocity / neighborhood.size();
+  }
   return Vector2f::normalized(averageVelocity);
 }
