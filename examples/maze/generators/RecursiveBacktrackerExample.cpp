@@ -4,6 +4,13 @@
 #include <climits>
 bool RecursiveBacktrackerExample::Step(World* w) {
   // todo: implement this
+
+  Point2D currentPoint(0,0);
+
+
+
+
+
   return false;
 }
 
